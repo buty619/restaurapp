@@ -1,33 +1,237 @@
-.App {
+body{
+    font-family: 'Raleway', sans-serif;
+}
+
+nav{
+    padding: 10px;
+    margin-top: 0px;
+    background-color: whitesmoke;
+    border-bottom: 1px solid  brown;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav div{
+    display: flex;
+    text-align: center;
+}
+
+nav div h1{
+    font-family: 'Baloo Chettan', cursive;
+    font-size: 36px;
+    color: white;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    margin: 5px;
+}
+
+nav div i{
+    font-size: 42px;
+    color: brown;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+    height: 100%;
+    
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 5px;
+    align-items: start;
+    margin: 20px;
+}
+
+.map{
+    grid-column: 4 / 5;
+    grid-row: 1 / 3;
+    margin-top: 10px;
+    height: 100%;
+}
+
+.mapRestaurant{
+    height: 100%;
+}
+
+.cardContainer{
+    margin: 10px;
+}
+
+.cardButton{
+    background-color: brown;
+    border: 1px solid  grey;
+}
+
+.cardButton:hover{
+    background-color: rgb(199, 81, 81);
+    border: 1px solid  rgb(94, 93, 93);
+}
+
+.cardButton:active{
+    outline: none;
+    border: none;
+    box-shadow: none;
+    background-color: rgb(199, 81, 81);
+    border: 1px solid  rgb(94, 93, 93);
+}
+
+.cardButton:focus{
+    outline: none;
+    box-shadow: none;
+}
+
+button {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: 0;
+  vertical-align: middle;
+  text-decoration: none;
+  background: transparent;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+button:focus{
+    outline: none;
+}
+
+.banner{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 0px;
+    align-items: start;
+    margin: 0px;
+}
+
+.fa-heart{
+    position: absolute;
+    right: 0;
+    margin: 10px;
+    font-size: 36px;
+    color: white;
+}
+
+.fa-heart:hover{
+    position: absolute;
+    right: 0;
+    margin: 10px;
+    font-size: 36px;
+    color: brown;
+}
+
+.underBanner{
+    margin:20px;
+    display: grid;
+    grid-template-columns: 68% 32%;
+}
+
+.underBanner h1{
+    font-weight: bold;
+}
+
+.underBanner h2{
+    font-weight: bold;
+}
+
+.formContainer{
+    margin: 60px;
+}
+
+.inputText{
+    display: flex;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    justify-content: space-between;
+}
+
+.inputText h3{
+    width: 40%;
+}
+
+.inputText input{
+    border: none;
+    border-bottom: 1px solid  brown;
+    border-radius: 0px;
+}
+
+.inputText input:focus{
+    outline: none;
+    border: none;
+    box-shadow: none;
+    border-bottom: 1px solid  brown;
+}
+
+button.learn-more {
+  width: 12rem;
+  height: auto;
+}
+button.learn-more .circle {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: relative;
+  margin: 0;
+  width: 3rem;
+  height: 3rem;
+  background: brown;
+  border-radius: 1.625rem;
+}
+button.learn-more .circle .icon {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: #fff;
+}
+button.learn-more .circle .icon.arrow {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  left: 0.625rem;
+  width: 1.125rem;
+  height: 0.125rem;
+  background: none;
+}
+button.learn-more .circle .icon.arrow::before {
+  position: absolute;
+  content: '';
+  top: -0.25rem;
+  right: 0.0625rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-top: 0.125rem solid #fff;
+  border-right: 0.125rem solid #fff;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+button.learn-more .button-text {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  font-family: 'Raleway', sans-serif;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.75rem 0;
+  margin: 0 1rem 0 3rem;
+  color: brown;
+  font-weight: 700;
+  line-height: 1.6;
   text-align: center;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+button:hover .circle {
+  width: 100%;
+}
+button:hover .circle .icon.arrow {
+  background: #fff;
+  -webkit-transform: translate(1rem, 0);
+          transform: translate(1rem, 0);
+}
+button:hover .button-text {
+  color: #fff;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
