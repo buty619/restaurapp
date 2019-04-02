@@ -12,8 +12,8 @@ class App extends Component {
     return (
       <Router history={history}>
         <Route exact path="/" component={Root} />
-        <Route  path="/:id" component={Restaurant}/>
-        <Route  exact path="/form" component={Form}/>
+        <Route exact path="/restaurants/:id" component={Restaurant}/>
+        <Route exact path="/form" component={Form}/>
       </Router>
     );
   }

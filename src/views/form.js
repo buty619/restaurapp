@@ -39,6 +39,13 @@ class Restaurant extends Component {
               <Form.Label>Restaurant Description</Form.Label>
               <Form.Control id="description" as="textarea" rows="3" />
             </Form.Group>
+
+            <Form.Group controlId="">
+              <Form.Label><i class="fas fa-upload"></i> UpLoad Image</Form.Label>
+              <Form.Control id="description" type="file" name="avatar" accept="image/gif, image/png, image/jpeg" multiple/>
+            </Form.Group>
+
+
             <Button variant="primary" className="cardButton"  onClick={this.create.bind(this)}>
               Submit
             </Button>

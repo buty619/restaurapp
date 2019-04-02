@@ -18,7 +18,7 @@ class CardRest extends Component {
   render() {
     return (
       <div>
-        {this.state.redirect ? <Redirect to={{pathname: this.id, state:this.state.dataRes}} />:null}
+        {this.state.redirect ? <Redirect to={{pathname: `/restaurants/${this.id}`, state:this.state.dataRes}} />:null}
         <Card className="cardContainer">
           <Carousel>
               <Carousel.Item>
