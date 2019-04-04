@@ -10,7 +10,8 @@ class Restaurant extends Component {
   constructor(){
     super()
     this.state = {
-      redirect : false
+      redirect : false,
+      file : []
     }
   } 
   render() {
@@ -41,8 +42,8 @@ class Restaurant extends Component {
             </Form.Group>
 
             <Form.Group controlId="">
-              <Form.Label><i class="fas fa-upload"></i> UpLoad Image</Form.Label>
-              <Form.Control id="description" type="file" name="avatar" accept="image/gif, image/png, image/jpeg" multiple/>
+              <Form.Label><i className="fas fa-upload"></i> UpLoad Image</Form.Label>
+              <Form.Control id="file-input" onChange={this.onChange.bind(this)} type="file" name="avatar" accept="image/gif, image/png, image/jpeg" multiple/>
             </Form.Group>
 
 
@@ -56,16 +57,28 @@ class Restaurant extends Component {
     );
   }
   async create(e){
-    await axios.post('https://restaurappapi.herokuapp.com/restaurants', {
-      name: document.getElementById("name").value,
-      category: document.getElementById("category").value,
-      direction: document.getElementById("direction").value,
-      description: document.getElementById("description").value,
-      fav:false
-    });
+    // await axios.post('https://restaurappapi.herokuapp.com/restaurants', {
+    //   name: document.getElementById("name").value,
+    //   category: document.getElementById("category").value,
+    //   direction: document.getElementById("direction").value,
+    //   description: document.getElementById("description").value,
+    //   fav:false
+    // });
+
+    console.log(this.state.file);
+    var formData = new FormData();
+    console.log(formData);
+    formData.append('image',this.state.file);
+    console.log(formData.get("image"));
+    const url = await axios.post("https://restaurappapi.herokuapp.com/upload",formData);
+    console.log(url);
     this.setState({
       redirect : true
     });
+  }
+  onChange(e) {
+    this.setState({file:e.target.files});
+    console.log(this.state.file);
   }
 }
 
