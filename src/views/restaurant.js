@@ -14,17 +14,17 @@ class Restaurant extends Component {
         <div className="banner">
           <img
             className="d-block w-100"
-            src={this.props.data.url1}
+            src={this.props.location.state.url1}
             alt="First slide"
           />
           <img
             className="d-block w-100"
-            src={this.props.data.url2}
+            src={this.props.location.state.url2}
             alt="Third slide"
           />
           <img
             className="d-block w-100"
-            src={this.props.data.url3}
+            src={this.props.location.state.url3}
             alt="Third slide"
           />
           <i className="far fa-heart"></i>
