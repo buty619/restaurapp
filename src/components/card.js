@@ -24,7 +24,7 @@ class CardRest extends Component {
               <Carousel.Item>
                 <img
                   className="d-block w-100"
-                  src="https://www.ot-cassis.com/cache/media/patio/13t1000724_8/s,800,800-d96b5b.jpg"
+                  src={this.props.data.url1}
                   alt="First slide"
                 />
                 <Carousel.Caption>
@@ -35,7 +35,7 @@ class CardRest extends Component {
               <Carousel.Item>
                 <img
                   className="d-block w-100"
-                  src="https://www.gastronomistas.com/wp-content/uploads/sala-a-restaurant-gastronomistas.com_.jpeg"
+                  src={this.props.data.url2}
                   alt="Third slide"
                 />
 
@@ -47,7 +47,7 @@ class CardRest extends Component {
               <Carousel.Item>
                 <img
                   className="d-block w-100"
-                  src="https://noted-prod-cdn-ep.azureedge.net/cache/3/c/b/0/a/a/3cb0aa58330edbec1c2a7c9e6b1e485ca19b9d8c.jpg"
+                  src={this.props.data.url3}
                   alt="Third slide"
                 />
 

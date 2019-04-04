@@ -57,21 +57,23 @@ class Restaurant extends Component {
     );
   }
   async create(e){
-    // await axios.post('https://restaurappapi.herokuapp.com/restaurants', {
-    //   name: document.getElementById("name").value,
-    //   category: document.getElementById("category").value,
-    //   direction: document.getElementById("direction").value,
-    //   description: document.getElementById("description").value,
-    //   fav:false
-    // });
-
-    console.log(this.state.file);
-    var formData = new FormData();
-    console.log(formData);
-    formData.append('image',this.state.file);
-    console.log(formData.get("image"));
-    const url = await axios.post("https://restaurappapi.herokuapp.com/upload",formData);
-    console.log(url);
+    const url = [];
+    for (let i = 0; i < this.state.file.length; i++) {
+      var formData = new FormData();
+      formData.append('image',this.state.file[i]);
+      let response = await axios.post("https://restaurappapi.herokuapp.com/upload",formData);
+      url[i]=response.data.imageUrl;
+    }
+    await axios.post('https://restaurappapi.herokuapp.com/restaurants', {
+      name: document.getElementById("name").value,
+      category: document.getElementById("category").value,
+      direction: document.getElementById("direction").value,
+      description: document.getElementById("description").value,
+      url1: url[0],
+      url2: url[1],
+      url3: url[2],
+      fav:false
+    });    
     this.setState({
       redirect : true
     });
