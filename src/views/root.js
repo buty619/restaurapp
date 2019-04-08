@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import NavBar from "../components/navBar";
 import Card from "../components/card";
-import Map from "../components/map";
 import axios from "axios";
 import '../App.css';
+import MapContainer from "../components/maps";
 
 class Root extends Component {
   constructor(){
@@ -22,19 +22,17 @@ class Root extends Component {
             return <Card data={data}/>
           })}   
           <div className="map">
-            <Map />
+            <MapContainer data={this.state.restaurants}/>
           </div>          
         </div>
       </div>
     );
   }
-  load(){
-    axios.get("https://restaurappapi.herokuapp.com/restaurants")
-    .then( res => {
-      this.setState({
-        restaurants : res.data
-      });
-    })     
+  async load(){
+    const res = await axios.get('https://restaurappapi.herokuapp.com/restaurants');
+    this.setState({
+      restaurants : res.data
+    });     
   }
 }
 

@@ -34,6 +34,13 @@ class Restaurant extends Component {
               <h3>Restaurant Direction:</h3>
               <Form.Control id="direction" type="text" placeholder="Direction" />
             </div>
+            <h3>Restaurant Coordinates:</h3>
+            <div className="inputText">              
+              <h5>Latitude:</h5>
+              <Form.Control id="Latitude" type="text" placeholder="Latitude" />
+              <h5>Longitude:</h5>
+              <Form.Control id="Longitude" type="text" placeholder="Longitude" />
+            </div>
 
 
             <Form.Group controlId="exampleForm.ControlTextarea1">
@@ -72,7 +79,8 @@ class Restaurant extends Component {
       url1: url[0],
       url2: url[1],
       url3: url[2],
-      fav:false
+      lat: document.getElementById("Latitude").value,
+      lng: document.getElementById("Longitude").value
     });    
     this.setState({
       redirect : true

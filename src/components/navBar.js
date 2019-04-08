@@ -12,16 +12,20 @@ class NavBar extends Component {
           <h1>RestaurApp</h1>
           </div>
         </Link>
-        <Link to="/form">
-          <div id="container">
-            <button className="learn-more">
-              <div className="circle">
-                <span className="icon arrow"></span>
-              </div>
-              <p className="button-text">Add Restaurant</p>
-            </button>
-          </div>
-        </Link>
+        <div className="left">
+          <Link id="login" to="/login">Log In</Link>
+          <Link id="register" to="/register">Register</Link>
+          <Link to="/form">
+            <div id="container">
+              <button className="learn-more">
+                <div className="circle">
+                  <span className="icon arrow"></span>
+                </div>
+                <p className="button-text">Add Restaurant</p>
+              </button>
+            </div>
+          </Link>
+        </div>
       </nav>
     );
   }
