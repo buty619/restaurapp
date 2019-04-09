@@ -10,6 +10,7 @@ class Restaurant extends Component {
     this.state = {
       dataRes : {}
     }
+    console.log("entro");
     this.load();
   }
   render() {
@@ -43,7 +44,7 @@ class Restaurant extends Component {
             <p>{this.state.dataRes.description}</p>
           </div>
           <div className="mapRestaurant">
-            <MapContainer data={this.state.dataRes}/>
+            {this.state.dataRes.lng ? <MapContainer data={this.state.dataRes}/> : <h1>Loanding ...</h1>}
           </div>
         </div>
       </div>
@@ -51,7 +52,7 @@ class Restaurant extends Component {
     );
   }
   async load(){
-    const res = await axios.get('https://restaurappapi.herokuapp.com/restaurants/'+this.props.location.state);
+    const res = await axios.get('https://restaurappapi.herokuapp.com/restaurants/'+this.props.match.params.id);
     this.setState({
       dataRes : res.data
     });

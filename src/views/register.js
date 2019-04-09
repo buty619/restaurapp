@@ -38,6 +38,9 @@ class Restaurant extends Component {
             <Button variant="primary" className="cardButton"  onClick={this.create.bind(this)}>
               Register
             </Button>
+            <Button variant="primary" className="cardButton"  onClick={this.google.bind(this)}>
+              Register whit Google
+            </Button>
             <Link id="login" to="/">Cancel</Link>
           </Form>
         </div>
@@ -62,6 +65,12 @@ class Restaurant extends Component {
     } else {
       x.type = "password";
     }
+  }
+  async google(e){
+    await axios.get("https://restaurappapi.herokuapp.com/oauth");
+    this.setState({
+      redirect : true
+    });
   }
 }
 

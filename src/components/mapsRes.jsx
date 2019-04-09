@@ -31,7 +31,7 @@ export class MapContainer extends Component {
             lng: this.props.data.lng
           }}
           style={{
-            height: '300px', width: '300px'
+            height: '400px', width: '400px'
           }}
           google={this.props.google}
           zoom={13}

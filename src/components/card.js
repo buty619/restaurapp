@@ -1,24 +1,16 @@
 import React, { Component } from 'react';
 import '../App.css';
 import { Card } from 'react-bootstrap';
-import { Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import { Carousel } from 'react-bootstrap';
-import {Redirect} from "react-router";
-import axios from "axios";
 
 class CardRest extends Component {
   constructor(props){
     super(props);
-    this.state = {
-      redirect : false,
-      dataRes : {}
-    }
-    this.id="";
   }
   render() {
     return (
       <div>
-        {this.state.redirect ? <Redirect to={{pathname: `/restaurants/${this.id}`, state:this.id}} />:null}
         <Card className="cardContainer">
           <Carousel>
               <Carousel.Item>
@@ -61,20 +53,11 @@ class CardRest extends Component {
             <Card.Title>{this.props.data.name}</Card.Title>
             <Card.Text>{this.props.data.category}</Card.Text>
             <Card.Text>{this.props.data.direction}</Card.Text>
-            <Button id={this.props.data._id} variant="primary" className="cardButton" onClick={this.gotoRes.bind(this)}>Reservation</Button>
+            <Link className="btn btn-primary cardButton" to={"/restaurants/"+this.props.data._id}>Reservation</Link>
           </Card.Body>
         </Card>
       </div>
-
     );
-  }
-  async gotoRes(e){
-    this.id = e.target.id;
-    const res = await axios.get('https://restaurappapi.herokuapp.com/restaurants/'+this.id);
-    this.setState({
-      redirect : true,
-      dataRes : res.data
-    });
   }
 }
 
